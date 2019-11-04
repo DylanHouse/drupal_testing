@@ -1,0 +1,59 @@
+<?php
+
+namespace Drupal\tim_port\Controller;
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Controller\ControllerBase;
+
+/**
+ * Defines TimPortController class.
+ */
+
+class TimPortController extends ControllerBase {
+
+	/**
+	 * Dispaly the markup.
+	 *
+	 * @return array
+	 *   Return markup array.
+	 */
+	public function content() {
+
+		$form['client_overview'] = array(
+			'#type' => 'table',
+			'#caption' => $this->t('Client Overview'),
+			//'#header' => array(
+				//$this->t('Name'),
+				//$this->t('Phone'),
+			//),
+		);
+
+		$form['client_overview'][1]['blank'] = array(
+		);
+
+		$form['client_overview'][1]['client_dropdown'] = array(
+			'#title' => t('Client'),
+			'#type' => 'select',
+			'#options' => array('', t('Anna'), t('Bailey'),),
+			'#empty_option' => $this->t('- Select a client -'),
+			'#ajax' => [
+				'callback' => '::updateColor',
+				'wrapper' => 'color-wrapper',
+			],
+
+		);
+
+		$form['client_overview'][]['colspan_example'] = array(
+			'#plain_text' => 'Colspan Example',
+			'#wrapper_attributes' => array(
+				'colspan' => 2,
+				'class' => array(
+					'foo',
+					'bar',
+				),
+			),
+		);
+
+		return [$form];
+	}
+}

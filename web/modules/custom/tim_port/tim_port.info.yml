@@ -1,0 +1,6 @@
+name: Tim-Port
+description: Tortoise Investment Management Portfolio Demo
+package: Custom
+
+type: module
+core: 8.x
