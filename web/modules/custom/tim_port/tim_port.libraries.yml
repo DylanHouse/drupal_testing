@@ -1,9 +1,0 @@
-tim-port:
-  version: 1.x
-  #css:
-  #theme:
-  #css/cuddly-slider.css: {}
-  js:
-    js/tim-port.js: {}
-  dependencies:
-    - core/jquery

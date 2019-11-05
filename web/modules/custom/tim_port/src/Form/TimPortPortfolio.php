@@ -11,6 +11,20 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 
 class TimPortPortfolio extends FormBase {
+
+function custom_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  /**
+   * Apply the form_alter to a specific form #id
+   * the form #id can be found through inspecting the markup
+   */
+    /**
+     * Include a js, which was defined in example.libraries.yml
+     */
+    $form['#attached']['library'][] = "example/example-library";
+
+}
+
    /**
    * {@inheritdoc}
    */
@@ -37,7 +51,8 @@ class TimPortPortfolio extends FormBase {
         'callback' => '::updateClientData', // don't forget :: when calling a class method.
         'disable-refocus' => FALSE, // Or TRUE to prevent re-focusing on the triggering element.
         'event' => 'change',
-        'wrapper' => 'edit-output', // This element is updated with this AJAX callback.
+        'wrapper' => 'edit-output-1', // This element is updated with this AJAX callback.
+        //'wrapper' => array('edit-output-1', 'edit-output-2'), // This element is updated with this AJAX callback.
         'progress' => [
           'type' => 'throbber',
           'message' => $this->t('Updating Client Data...'),
@@ -45,71 +60,81 @@ class TimPortPortfolio extends FormBase {
       ]
     ];
 
-    // Create a textbox that will be updated
-    // when the user selects an item from the select box above.
-    $form['output'] = [
-      '#type' => 'textfield',
-      '#size' => '60',
-      '#disabled' => TRUE,
-      '#value' => 'Hello, Drupal!!1',
-      '#prefix' => '<div id="edit-output">',
-      '#suffix' => '</div>',
+    //$header = ['#','Name', 'Mail'];
+
+    $data = [
+      [['data' => 2, 'class' => 'green'], 'Name 1', 'Mail1@example.com'],
+      [['data' => 2, 'class' => 'red'], 'Name N°2', 'second@example.com'],
     ];
 
-    $form['client_overview'] = array(
-                        '#type' => 'table',
-                        '#caption' => $this->t('Client Overview'),
-                        //'#header' => array(
-                                //$this->t('Name'),
-                                //$this->t('Phone'),
-                        //),
-		);
-
-    $form['client_overview'][1]['risk_tolerance_header'] = array(
-	    '#plain_text'=> 'Risk Tolerance:',
+    $form['table_test'] = array(
+      '#theme' => 'table',
+      //'#cache' => ['disabled' => TRUE],
+      '#caption' => 'Client Overview',
+    //  '#header' => $header,
+      '#rows' => $data,
+      '#prefix' => '<div id="edit-output-1">',
+      '#suffix' => '</div>',
     );
 
-    $form['client_overview'][1]['risk_tolerance_value'] = array(
-	    '#plain_text'=> '',
+    $data = [
+      [['data' => 0, 'class' => 'green'], '1', '2'],
+      [['data' => 0, 'class' => 'red'], '1', '2'],
+    ];
+
+    $form['table_test_a'] = array(
+      '#theme' => 'table',
+      //'#cache' => ['disabled' => TRUE],
+      '#caption' => 'Client Overview',
+    //  '#header' => $header,
+      '#rows' => $data,
+      '#prefix' => '<div id="edit-output-2">',
+      '#suffix' => '</div>',
     );
 
-    $form['client_overview'][2]['net_portfolio_value_header'] = array(
-            '#plain_text'=> 'Net Portfolio Value:',
-    );
-
-    $form['client_overview'][2]['net_portfolio_value_value'] = array(
-            '#plain_text'=> '',
-    );
-
-    $form['client_overview'][3]['inception_date_header'] = array(
-            '#plain_text'=> 'Inception Date:',
-    );
-
-    $form['client_overview'][3]['inception_date_value'] = array(
-            '#plain_text'=> '',
-    );
     return $form;
   }
 
   // Get the value from example select field and fill
   // the textbox with the selected text.
+  //
   public function updateClientData(array &$form, FormStateInterface $form_state) {
 
-	  $response = new AjaxResponse();
-	  $response->addCommand(new InvokeCommand(NULL, 'myAjaxCallback', ['This is the new text!']));
-	  return $response;
-	  
-    // Prepare our textfield. check if the example select field has a selected option.
     if ($selectedValue = $form_state->getValue('client_select')) {
-        // Get the text of the selected option.
-        $selectedText = $form['client_select']['#options'][$selectedValue];
-        // Place the text of the selected option in our textfield.
-	$form['output']['#value'] = $selectedText;
+	    
+	    $response = new AjaxResponse();
+	    
+	    $renderer = \Drupal::service('renderer');
 
-	$form['client_overview'][1]['risk_tolerance_value']['#plain_text'] = 'Test'; 
+	    // Get the text of the selected option.
+	    $selectedText = $form['client_select']['#options'][$selectedValue];
+
+	    
+	    $data = [
+		    [['data' => 2, 'class' => 'green'], $selectedText, 'Mail1@example.com'],
+		    [['data' => 2, 'class' => 'red'], $selectedText, 'second@example.com'],
+	    ];
+	    
+	    $form['table_test']['#rows'] = $data;
+
+	    $renderedField = $renderer->render($form['table_test']);
+	    $response->addCommand(new ReplaceCommand('#edit-output-1', $renderedField));
+
+	    
+	    $data = [
+		    [['data' => 2, 'class' => 'green'], $selectedText, '0'],
+		    [['data' => 2, 'class' => 'red'], $selectedText, '0'],
+	    ];
+	    
+	    $form['table_test_a']['#rows'] = $data;
+
+	    $renderedField = $renderer->render($form['table_test_a']);
+	    $response->addCommand(new ReplaceCommand('#edit-output-2', $renderedField));
     }
-    // Return the prepared textfield.
-    return [$form['output'],$form['client_overview'][1]];
+
+    return $response;
+
+    return $form['table_test']; 
   }
 
   /**
