@@ -30,4 +30,6 @@ caption {
   display: table-caption;
   text-align: center;
   border:1px solid black;
+  background-color: CornflowerBlue;
+  color: white;
 }
