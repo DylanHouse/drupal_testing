@@ -1,7 +1,31 @@
-table,th,td {
-  border:1px solid black;
+#column-1 {
+	width: 33%;
+	float: left;
 }
 
+#column-2 {
+	width: 33%;
+	float: left;
+}
+
+#column-3 {
+	width: 33%;
+	float: left;
+}
+
+
+
+#edit-client-overview table tr{
+  border:1px solid black;
+  width: 100%;
+}
+
+#edit-client-overview td {
+  border:1px solid black;
+}
+th {
+  border:1px solid black;
+}
 caption { 
   display: table-caption;
   text-align: center;

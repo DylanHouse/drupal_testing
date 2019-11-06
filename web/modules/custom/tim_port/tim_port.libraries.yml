@@ -1,8 +1,9 @@
 tim_port:
   version: 1.x
   header: true
+  css-override:
   css:
-    base:
+    theme:
       css/tim_port.css: {}
 
   dependencies:

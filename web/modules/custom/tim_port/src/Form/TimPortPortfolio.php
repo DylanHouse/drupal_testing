@@ -134,19 +134,6 @@ protected $accountActionPanelData = [
 	]
 ];
 
-
-function custom_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  /**
-   * Apply the form_alter to a specific form #id
-   * the form #id can be found through inspecting the markup
-   */
-    /**
-     * Include a js, which was defined in example.libraries.yml
-     */
-    $form['#attached']['library'][] = "css/tim-port.css";
-
-}
-
    /**
    * {@inheritdoc}
    */
@@ -182,6 +169,11 @@ function custom_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       ]
     ];
 
+    $form['column_1_prefix'] = array(
+	    '#type' => 'hidden',
+	    '#prefix' => '<div id="column-1">',
+    );
+
     $form['client_overview'] = array(
       '#theme' => 'table',
       //'#cache' => ['disabled' => TRUE],
@@ -210,9 +202,21 @@ function custom_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       '#suffix' => '</div>',
     );
 
+    $form['column_1_suffix'] = array(
+	    '#type' => 'hidden',
+	    '#suffix' => '</div>',
+    );
+
+    $form['column_2_prefix'] = array(
+	    '#type' => 'table',
+	    '#prefix' => '<div id="column-2">',
+    );
+
     $form['status_overview'] = array(
 	    '#type' => 'table',
 	    '#caption' => $this->t('Status Overview'),
+            '#prefix' => '<div id="status-overview">',
+            '#suffix' => '</div>',
     );
     
     $form['status_overview'][1]['manager'] = array(
@@ -419,12 +423,23 @@ function custom_form_alter(&$form, FormStateInterface $form_state, $form_id) {
     $form['asset_subclass_breakdown'] = array(
             '#type' => 'table',
             '#caption' => $this->t('Asset Subclass Breakdown'),
-            '#rows' => $assestSubclassBreakdownData,
+	    '#rows' => $assestSubclassBreakdownData,
+	    //'#suffix' => '</div>',
+    );
+
+    $form['column_2_suffix'] = array(
+            '#type' => 'hidden',
+            '#suffix' => '</div>',
+    );
+
+    $form['column_3_prefix'] = array(
+            '#type' => 'table',
+            '#prefix' => '<div id="column-2">',
     );
 
     $form['long_term_trading_notes'] = array(
             '#type' => 'table',
-            '#caption' => $this->t('Long Term Trading Notes'),
+	    '#caption' => $this->t('Long Term Trading Notes'),
     );
 
     $form['long_term_trading_notes'][1]['textarea'] = array(
@@ -484,7 +499,12 @@ function custom_form_alter(&$form, FormStateInterface $form_state, $form_id) {
     $form['customer_history'] = array(
             '#type' => 'table',
             //'#caption' => $this->t('Asset Subclass Breakdown'),
-            '#rows' => $customerHistoryData,
+	    '#rows' => $customerHistoryData,
+    );
+
+    $form['column_3_suffix'] = array(
+            '#type' => 'hidden',
+            '#suffix' => '</div>',
     );
 
     return $form;
@@ -496,7 +516,7 @@ function custom_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   public function updateClientData(array &$form, FormStateInterface $form_state) {
 
 	  if($form_state->getValue('client_select') == null) {
-		  \Drupal::logger('tim-port')->notice('Null: ');
+		  //\Drupal::logger('tim-port')->notice('Null: ');
             $response = new AjaxResponse();
             $renderer = \Drupal::service('renderer');
 
@@ -517,9 +537,6 @@ function custom_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
 
     if ($selectedValue = $form_state->getValue('client_select')) {
-	    
-
-	    \Drupal::logger('tim-port')->notice('Selected Value: "'.$selectedValue.'"');
 
 	    $response = new AjaxResponse();
 	    

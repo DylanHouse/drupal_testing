@@ -1,0 +1,17 @@
+<?php
+
+function tim_port_page_attachments(array &$attachments) {
+  //$attachments['#attached']['library'][] = 'tim_port/tim_port';
+}
+
+function tim_port_form_alter(&$form, &$form_state, $form_id) {
+  /**
+   * Apply the form_alter to a specific form #id
+   * the form #id can be found through inspecting the markup
+   */
+    /**
+     * Include a js, which was defined in example.libraries.yml
+     */
+        \Drupal::logger('tim-port')->notice('tim_port_form_alter');
+        $form['#attached']['library'][] = "tim_port/tim_port";
+}
