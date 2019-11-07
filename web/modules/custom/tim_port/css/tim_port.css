@@ -1,31 +1,99 @@
 #column-1 {
+	font-size: 10px;
 	width: 33%;
 	float: left;
 }
 
 #column-2 {
-	width: 33%;
+	font-size: 10px;
+	width: 23%;
 	float: left;
+	padding-left: 2px;
 }
 
 #column-3 {
-	width: 33%;
+	font-size: 10px;
+	width: 43%;
 	float: left;
+	padding-left: 2px;
 }
 
-
-
-#edit-client-overview table tr{
-  border:1px solid black;
+/*#edit-client-overview table{
   width: 100%;
+}*/
+#edit-portfolio-breakdown td {
+	border:1px solid CornflowerBlue;
+}
+#account-action-panel td {
+	border:1px solid CornflowerBlue;
+}
+#status-overview td {
+	border:1px solid CornflowerBlue;
+}
+#allocation-targeting td {
+	border:1px solid CornflowerBlue;
+}
+#downside-risk-est td {
+	border:1px solid CornflowerBlue;
+}
+#intrest-risk-rate td {
+	border:1px solid CornflowerBlue;
+}
+#return td {
+	border:1px solid CornflowerBlue;
+}
+#fixed-income-analytics td {
+	border:1px solid CornflowerBlue;
+}
+#portfolio-tax-status td {
+	border:1px solid CornflowerBlue;
+}
+#asset-subclass-breakdown td {
+	border:1px solid CornflowerBlue;
+}
+#long-term-trading-notes td {
+	border:1px solid CornflowerBlue;
+}
+#short-term-trading-notes td {
+	border:1px solid CornflowerBlue;
+}
+#help-me td {
+	border:1px solid CornflowerBlue;
+}
+#customer-history td {
+	border:1px solid CornflowerBlue;
 }
 
 #edit-client-overview td {
-  border:1px solid black;
+  border:1px solid CornflowerBlue;
 }
-th {
-  border:1px solid black;
+
+.red-font {
+	color: red;
+	font-weight: bold;
 }
+.green-background {
+	background-color: LightGreen;
+}
+.red-background {
+	background-color: LightPink;
+}
+.fake-rollup {
+  background-color: AliceBlue;
+  color: CornflowerBlue;
+  font-weight: bold;
+}
+
+.fake-header {
+	background-color: MidnightBlue;
+        color: white;
+}
+
+.fake-caption {
+	background-color: CornflowerBlue;
+	color: white;
+}
+
 caption { 
   display: table-caption;
   text-align: center;

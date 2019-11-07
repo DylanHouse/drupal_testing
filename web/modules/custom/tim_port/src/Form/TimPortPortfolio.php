@@ -62,34 +62,104 @@ protected $portfolioReviewData = [
 			['Commodities', '','','','' ],
 		],
 		[
-                        ['Category', 'Current','Target','Difference','Dollar Diff' ],
+			[
+				['class'=> 'fake-header', 'data'=> 'Category'],
+				['class'=> 'fake-header', 'data'=> 'Current'],
+				['class'=> 'fake-header', 'data'=> 'Target'],
+				['class'=> 'fake-header', 'data'=> 'Difference'],
+				['class'=> 'fake-header', 'data'=> 'Dollar Diff'],
+			],
+                        //['class'=> 'fake-header', 'data'=>['Category', 'Current','Target','Difference','Dollar Diff' ]],
                         ['Risky', '48%','47%','1%','$12,320' ],
                         ['Less Risky', '52%','53%','-1%','($12,320)' ],
-                        ['Equity Risk Units', '49','47','2','' ],
-                        ['Asset Class', 'Current','Target','Difference','Dollar Diff' ],
-                        ['Cash & Cash Equivalents', '4.8%','5.0%','-0.2%','($2,961)' ],
+                        ['Equity Risk Units', '49','47',['data'=>'2', 'class' => 'red-background'],'' ],
+			[
+				['class'=> 'fake-header', 'data'=> 'Asset Class'],
+				['class'=> 'fake-header', 'data'=> 'Current'],
+				['class'=> 'fake-header', 'data'=> 'Target'],
+				['class'=> 'fake-header', 'data'=> 'Difference'],
+				['class'=> 'fake-header', 'data'=> 'Dollar Diff'],
+			],
+			//['class'=> 'fake-header', 'data'=>['Asset Class', 'Current','Target','Difference','Dollar Diff' ]],
+			[
+                                ['class'=> 'fake-rollup', 'data'=> 'Cash & Cash Equivalents'],
+                                ['class'=> 'fake-rollup', 'data'=> '4.8%'],
+                                ['class'=> 'fake-rollup', 'data'=> '5.0%'],
+                                ['class'=> 'fake-rollup', 'data'=> '-0.2%'],
+                                ['class'=> 'fake-rollup', 'data'=> '($2,961)'],
+                        ],
+                        //['Cash & Cash Equivalents', '4.8%','5.0%','-0.2%','($2,961)' ],
                         ['U.S. Treasury / Agency', '9.4%','7.0%','2.4%','$33,365' ],
-                        ['Municipal', '13.6%','31.0%','-17.4%','($240,037)' ],
-                        ['Investment Grade Corporate', '17.7%','5.0%','12.7%','$174,487' ],
-                        ['Non-U.S. Gove', '0.5%','3.0%','-2.5%','($34,482)' ],
-                        ['Core Bonds', '41.2%','46.0%','-4.8%','($66,667' ],
+                        ['Municipal', '13.6%','31.0%',['data'=>'-17.4%', 'class' => 'green-background'],'($240,037)' ],
+                        ['Investment Grade Corporate', '17.7%','5.0%',['data'=>'12.7%', 'class' => 'red-background'],'$174,487' ],
+			['Non-U.S. Gove', '0.5%','3.0%','-2.5%','($34,482)' ],
+			[
+                                ['class'=> 'fake-rollup', 'data'=> 'Core Bonds'],
+                                ['class'=> 'fake-rollup', 'data'=> '41.2%'],
+                                ['class'=> 'fake-rollup', 'data'=> '46.0%'],
+                                ['class'=> 'fake-rollup', 'data'=> '-4.8%'],
+                                ['class'=> 'fake-rollup', 'data'=> '($66,667)'],
+                        ],
+                        //['Core Bonds', '41.2%','46.0%','-4.8%','($66,667' ],
                         ['TIPS', '2.0%','0.0%','2.0%','$27,985' ],
                         ['Reinsurance', '1.3%','0.0%','1.3%','$18,415' ],
                         ['Non-Agency RMBS', '2.8%','0.0%','2.8%','$38,467' ],
-                        ['Floating Rate', '0.0%','2.0%','-2.0%','($27,560)' ],
-                        ['Inflation-Protected', '6.2%','2.0%','4.2%','%57,308' ],
-                        ['Real Estate', '0.0%','1.0%','-1.0%','($13,780)' ],
+			['Floating Rate', '0.0%','2.0%','-2.0%','($27,560)' ],
+			[
+                                ['class'=> 'fake-rollup', 'data'=> 'Inflation-Protected'],
+                                ['class'=> 'fake-rollup', 'data'=> '6.2%'],
+                                ['class'=> 'fake-rollup', 'data'=> '2.0%'],
+                                ['class'=> 'fake-rollup', 'data'=> '4.2%'],
+                                ['class'=> 'fake-rollup', 'data'=> '($57,308)'],
+                        ],
+			//['Inflation-Protected', '6.2%','2.0%','4.2%','%57,308' ],
+			[
+                                ['class'=> 'fake-rollup', 'data'=> 'Real Estate'],
+                                ['class'=> 'fake-rollup', 'data'=> '0.0%'],
+                                ['class'=> 'fake-rollup', 'data'=> '1.0%'],
+                                ['class'=> 'fake-rollup', 'data'=> '-1.0%'],
+                                ['class'=> 'fake-rollup', 'data'=> '($13,780)'],
+                        ],
+                        //['Real Estate', '0.0%','1.0%','-1.0%','($13,780)' ],
                         ['US Equity', '30.9%','26.0%','4.9%','$66,912' ],
                         ['Foreign Developed Equity', '5.1%','7.0%','-1.9%','($26,195)' ],
-                        ['Emerging Market Equity', '5.3%','7.0%','-1.7%','($23,806)' ],
-                        ['Equity', '41.2%','40.0%','1.2%','$16,910' ],
-                        ['High Yield', '6.1%','3.0%','3.1%','$42,180' ],
-                        ['Emerging Market Debt', '0.6%','1.0%','-0.4%','($5,430)' ],
+			['Emerging Market Equity', '5.3%','7.0%','-1.7%','($23,806)' ],
+			[
+                                ['class'=> 'fake-rollup', 'data'=> 'Equity'],
+                                ['class'=> 'fake-rollup', 'data'=> '41.2%'],
+                                ['class'=> 'fake-rollup', 'data'=> '40.0%'],
+                                ['class'=> 'fake-rollup', 'data'=> '1.2%'],
+                                ['class'=> 'fake-rollup', 'data'=> '$16,910'],
+                        ],
+			//['Equity', '41.2%','40.0%','1.2%','$16,910' ],
+			[
+                                ['class'=> 'fake-rollup', 'data'=> 'High Yield'],
+                                ['class'=> 'fake-rollup', 'data'=> '6.1%'],
+                                ['class'=> 'fake-rollup', 'data'=> '3.0%'],
+                                ['class'=> 'fake-rollup', 'data'=> '3.1%'],
+                                ['class'=> 'fake-rollup', 'data'=> '$42,180)'],
+                        ],
+			//['High Yield', '6.1%','3.0%','3.1%','$42,180' ],
+			[
+                                ['class'=> 'fake-rollup', 'data'=> 'Emerging Market Debt'],
+                                ['class'=> 'fake-rollup', 'data'=> '0.6%'],
+                                ['class'=> 'fake-rollup', 'data'=> '1.0%'],
+                                ['class'=> 'fake-rollup', 'data'=> '-0.4%'],
+                                ['class'=> 'fake-rollup', 'data'=> '($5,430)'],
+                        ],
+                        //['Emerging Market Debt', '0.6%','1.0%','-0.4%','($5,430)' ],
                         ['Timber', '0.0%','1.0%','-1.0%','($13,780)' ],
                         ['Utilities', '0.0%','0.0%','0.0%','$0' ],
                         ['Pipelines', '0.0%','1.0%','-1.0%','($13,780)' ],
-                        ['Price Sensitive', '0.0%','0.0%','0.0%','$0' ],
-                        ['Commodities', '0.0%','2.0%','-2.0%','($27,560)' ],
+			['Price Sensitive', '0.0%','0.0%','0.0%','$0' ],
+			[
+                                ['class'=> 'fake-rollup', 'data'=> 'Commodities'],
+                                ['class'=> 'fake-rollup', 'data'=> '0.0%'],
+                                ['class'=> 'fake-rollup', 'data'=> '2.0%'],
+                                ['class'=> 'fake-rollup', 'data'=> '-2.0%'],
+                                ['class'=> 'fake-rollup', 'data'=> '($27,560)'],
+                        ],
+                        //['Commodities', '0.0%','2.0%','-2.0%','($27,560)' ],
 		],
 		[
                         ['Category', 'Current','Target','Difference','Dollar Diff' ],
@@ -126,11 +196,18 @@ protected $portfolioReviewData = [
 
 protected $accountActionPanelData = [
 	[
-		['Asset', 'Ticker', '$ Account', 'Max Amount', 'Action'],
-		['','','$0','$0.00', 'Sell'],
-		['','','$0','$0.00', 'Sell'],
-		['','','$0','$0.00', 'Sell'],
-		['','','$0','$0.00', 'Sell'],
+		[
+			['class'=> 'fake-header', 'data'=> 'Asset'],
+                        ['class'=> 'fake-header', 'data'=> 'Ticker'],
+                        ['class'=> 'fake-header', 'data'=> '$ Account'],
+                        ['class'=> 'fake-header', 'data'=> 'Max Amount'],
+                        ['class'=> 'fake-header', 'data'=> 'Action'],
+                ],
+		//['Asset', 'Ticker', '$ Account', 'Max Amount', 'Action'],
+		['','','$0','$0.00', ['class'=>'red-font', 'data'=>'Sell']],
+		['','','$0','$0.00', ['class'=>'red-font', 'data'=>'Sell']],
+		['','','$0','$0.00', ['class'=>'red-font', 'data'=>'Sell']],
+		['','','$0','$0.00', ['class'=>'red-font', 'data'=>'Sell']],
 	]
 ];
 
@@ -148,9 +225,9 @@ protected $accountActionPanelData = [
 
     // Create a select field that will update the contents
     // of the textbox below.
-    $form['client_select'] = [
+    $form['client_select'] = array(
       '#type' => 'select',
-      //'#title' => $this->t('Client Overview'),
+      '#title' => $this->t('Client:'),
       '#empty_option' => $this->t('- Select a client -'),
       '#options' => [
         '1' => $this->t('Abram, Ruth and Herbert Teitelbaum'),
@@ -167,7 +244,7 @@ protected $accountActionPanelData = [
           'message' => $this->t('Updating Client Data...'),
         ],
       ]
-    ];
+    );
 
     $form['column_1_prefix'] = array(
 	    '#type' => 'hidden',
@@ -208,7 +285,7 @@ protected $accountActionPanelData = [
     );
 
     $form['column_2_prefix'] = array(
-	    '#type' => 'table',
+	    '#type' => 'hidden',
 	    '#prefix' => '<div id="column-2">',
     );
 
@@ -266,8 +343,8 @@ protected $accountActionPanelData = [
     );
 
     $allocationData = [
-	    ['Client Specific Targets:', 'NO'],
-	    ['Taxable Assests Adjustment:', 'NO'],
+	    ['Client Specific Targets:', ['class'=>'red-font', 'data'=>'NO']],
+	    ['Taxable Assests Adjustment:', ['class'=>'red-font', 'data'=>'NO']],
 	    ['Tax Adjustment Toggle', 'OFF']
     ];
 
@@ -275,10 +352,16 @@ protected $accountActionPanelData = [
             '#type' => 'table',
 	    '#caption' => $this->t('Allocation Targetting   Impl Statge: Monitor'),
 	    '#rows' => $allocationData,
+            '#prefix' => '<div id="allocation-targeting">',
+            '#suffix' => '</div>',
     );
 
     $downsideRiskEstData = [
-	    ['2008', 'Peak to Trough'],
+	    [
+		    ['class'=> 'fake-header', 'data'=> '2008'],
+                    ['class'=> 'fake-header', 'data'=> 'Peak to Trough'],
+            ],
+	    //['2008', 'Peak to Trough'],
 	    ['-18%', '-24%'],
     ];
 
@@ -286,10 +369,14 @@ protected $accountActionPanelData = [
 	    '#type' => 'table',
 	    '#caption' => $this->t('Downside Risk Estimation'),
 	    '#rows' => $downsideRiskEstData,
+            '#prefix' => '<div id="downside-risk-est">',
+            '#suffix' => '</div>',
     );
 
     $interestRiskRateData = [
-	    ['Rates up 3% w/ Equity Flat'],
+	    [
+                    ['class'=> 'fake-header', 'data'=> 'Rates up 3% w/ Equity Flat'],
+            ],
 	    ['-6%'],
     ];
 
@@ -297,44 +384,35 @@ protected $accountActionPanelData = [
 	    '#type' => 'table',
 	    '#caption' => $this->t('Interest Rate Risk'),
 	    '#rows' => $interestRiskRateData,
+            '#prefix' => '<div id="intrest-risk-rate">',
+            '#suffix' => '</div>',
     );
 
     $returnData = [
 	    [
-		    array( '#type' => 'text', '#markup' => $this->t('Start Date'),),
-		    array( '#type' => 'text', '#markup' => '8/21/2019',),
-		    array( '#type' => 'text', '#markup' => '8/23/2019',)
+		    ['class' => 'fake-caption', 'data' =>'Returns as of'],
+		    ['class' => 'fake-caption', 'data' =>'8/21/2019'],
+		    ['class' => 'fake-caption', 'data' =>'8/23/2019'],
 	    ]
     ];
 
     $form['return'] = array(
 	    '#type' => 'table',
-	    //'#rows' => $returnData,
-    );
-
-    $form['return'][1]['start_date'] = array(
-	    '#type' => 'text',
-	    '#markup' => $this->t('Return as of'),
-    );
-
-    $form['return'][1]['date_1'] = array(
-	    '#type' => 'text',
-	    '#markup' => '8/21/2019',
-    );
-
-    $form['return'][1]['date_2'] = array(
-	    '#type' => 'text',
-	    '#markup' => '8/23/2019',
+	    '#rows' => $returnData,
+            '#prefix' => '<div id="return">',
+            '#suffix' => '</div>',
     );
 
     $form['return'][2]['start_date_header'] = array(
             '#type' => 'text',
-            '#markup' => $this->t('Start Date'),
+	    '#markup' => $this->t('Start Date'),
+	    '#wrapper_attributes' => ['class' => 'fake-header'],
     );
 
     $form['return'][2]['portfolio_header'] = array(
             '#type' => 'text',
             '#markup' => 'Portfolio',
+	    '#wrapper_attributes' => ['class' => 'fake-header'],
     );
 
     $form['return'][2]['portfolio_select'] = array(
@@ -390,7 +468,12 @@ protected $accountActionPanelData = [
     );
 
     $fixedIncomeAnalyticsData = [
-            ['Metric', 'Current', 'New'],
+	    [
+                    ['class'=> 'fake-header', 'data'=> 'Metric'],
+                    ['class'=> 'fake-header', 'data'=> 'Current'],
+                    ['class'=> 'fake-header', 'data'=> 'New'],
+            ],
+            //['Metric', 'Current', 'New'],
             ['Portfolio Duration (cash included)', '3.67', '3.67'],
     ];
 
@@ -398,10 +481,17 @@ protected $accountActionPanelData = [
             '#type' => 'table',
             '#caption' => $this->t('Fixed Income Analytics'),
             '#rows' => $fixedIncomeAnalyticsData,
+            '#prefix' => '<div id="fixed-income-analytics">',
+            '#suffix' => '</div>',
     );
 
     $portfolioTaxStatusData = [
-            ['Type of Account', '% Of Portfolio', '$ Value'],
+	    [
+                    ['class'=> 'fake-header', 'data'=> 'Type of Account'],
+                    ['class'=> 'fake-header', 'data'=> '% Of Portfolio'],
+                    ['class'=> 'fake-header', 'data'=> '$ Value'],
+            ],
+            //['Type of Account', '% Of Portfolio', '$ Value'],
             ['Taxable', '58.3%', '$803,265'],
             ['Tax-deferred', '41.7%', '$574,732'],
     ];
@@ -410,10 +500,17 @@ protected $accountActionPanelData = [
             '#type' => 'table',
             '#caption' => $this->t('Portfolio Tax Status'),
             '#rows' => $portfolioTaxStatusData,
+            '#prefix' => '<div id="portfolio-tax-status">',
+            '#suffix' => '</div>',
     );
 
     $assestSubclassBreakdownData = [
-            ['Bonds', 'Current', 'New'],
+	    [
+                    ['class'=> 'fake-header', 'data'=> 'Bonds'],
+                    ['class'=> 'fake-header', 'data'=> 'Current'],
+                    ['class'=> 'fake-header', 'data'=> 'New'],
+            ],
+            //['Bonds', 'Current', 'New'],
             ['Short-Term, High Quality Bonds', '12.9%', '12.9%'],
             ['Leveraged Muni Bonds', '1.9%', '1.9%'],
             ['Mortgage Funds (DBLTX, TGLMX, TGMNX)', '0.0%', ''],
@@ -424,7 +521,8 @@ protected $accountActionPanelData = [
             '#type' => 'table',
             '#caption' => $this->t('Asset Subclass Breakdown'),
 	    '#rows' => $assestSubclassBreakdownData,
-	    //'#suffix' => '</div>',
+            '#prefix' => '<div id="asset-subclass-breakdown">',
+            '#suffix' => '</div>',
     );
 
     $form['column_2_suffix'] = array(
@@ -433,25 +531,29 @@ protected $accountActionPanelData = [
     );
 
     $form['column_3_prefix'] = array(
-            '#type' => 'table',
-            '#prefix' => '<div id="column-2">',
+            '#type' => 'hidden',
+            '#prefix' => '<div id="column-3">',
     );
 
     $form['long_term_trading_notes'] = array(
             '#type' => 'table',
 	    '#caption' => $this->t('Long Term Trading Notes'),
+            '#prefix' => '<div id="long-term-trading-notes">',
+            '#suffix' => '</div>',
     );
 
     $form['long_term_trading_notes'][1]['textarea'] = array(
 	    '#type' => 'textarea',
 	    '#resizable' => 'none',
 	    '#rows' => '8',
-	    '#value' => 'Harvest taxlosses aggressively'.PHP_EOL.'No more tax loss carry forward',
+	    '#value' => 'Harvest tax losses aggressively'.PHP_EOL.'No more tax loss carry forward',
     );
 
     $form['short_term_trading_notes'] = array(
             '#type' => 'table',
             '#caption' => $this->t('Short Term Trading Notes'),
+            '#prefix' => '<div id="short-term-trading-notes">',
+            '#suffix' => '</div>',
     );
 
     $form['short_term_trading_notes'][1]['textarea'] = array(
@@ -464,6 +566,8 @@ protected $accountActionPanelData = [
     $form['help_me'] = array(
             '#type' => 'table',
             '#caption' => $this->t('Help Me!'),
+            '#prefix' => '<div id="help-me">',
+            '#suffix' => '</div>',
     );
 
     $form['help_me'][1]['link'] = array(
@@ -472,7 +576,14 @@ protected $accountActionPanelData = [
     );
 
     $customerHistoryData = [
-	    ['Date Action','Buy Action',                                   'Sell Action','Purpose','PM'],
+	    [
+                    ['class'=> 'fake-header', 'data'=> 'Date Action'],
+                    ['class'=> 'fake-header', 'data'=> 'Buy Action'],
+                    ['class'=> 'fake-header', 'data'=> 'Sell Action'],
+                    ['class'=> 'fake-header', 'data'=> 'Purpose'],
+                    ['class'=> 'fake-header', 'data'=> 'PM'],
+            ],
+	    //['Date Action','Buy Action',                                   'Sell Action','Purpose','PM'],
             ['2019/07/10',  '25 NIQ, 40 JPST {51, -6%}',                    '15 IVV, 20 FIPDX','Rebalance','COB'],
             ['2019/05/24',  '37 VRIG {50, -6%}',                            '30 NBB','Rebalance','RG'],
             ['2019/04/11',  '75 VWEAX {50, -7%}',                           '','Rebalance','COB'],
@@ -500,6 +611,8 @@ protected $accountActionPanelData = [
             '#type' => 'table',
             //'#caption' => $this->t('Asset Subclass Breakdown'),
 	    '#rows' => $customerHistoryData,
+            '#prefix' => '<div id="customer-history">',
+            '#suffix' => '</div>',
     );
 
     $form['column_3_suffix'] = array(
